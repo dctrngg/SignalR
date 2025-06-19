@@ -1,0 +1,41 @@
+﻿<Window x:Class="ChatClientApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Messenger" Height="600" Width="420" Background="#F0F2F5">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Kết nối -->
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBox x:Name="PortTextBox" Width="60" Margin="0,0,10,0" Text="5000"
+                     VerticalContentAlignment="Center" Padding="5"/>
+            <TextBox x:Name="UsernameTextBox" Width="120" Margin="0,0,10,0" Text="Username"
+                     GotFocus="UsernameTextBox_GotFocus" LostFocus="UsernameTextBox_LostFocus"
+                     VerticalContentAlignment="Center" Padding="5"/>
+            <Button x:Name="ConnectButton" Content="Connect" Click="ConnectButton_Click"
+                    Padding="5,2" Background="#1877F2" Foreground="White" BorderThickness="0"/>
+        </StackPanel>
+
+        <!-- Khu vực chat -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Background="White"
+                      BorderBrush="#CCC" BorderThickness="1" Padding="10">
+            <StackPanel x:Name="ChatPanel" />
+        </ScrollViewer>
+
+        <!-- Nhập tin nhắn -->
+        <Border Grid.Row="2" Background="White" Padding="8" CornerRadius="8" Margin="0,10,0,0" BorderBrush="#CCC" BorderThickness="1">
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="MessageTextBox" Width="200" Height="30" Margin="0,0,10,0"
+                         VerticalContentAlignment="Center" Padding="5"/>
+                <Button x:Name="SendButton" Content="📩" Width="40" Click="SendButton_Click"
+                        IsEnabled="False" ToolTip="Send" Background="#1877F2" Foreground="White" FontSize="16" BorderThickness="0"/>
+                <Button x:Name="FileButton" Content="📎" Width="40" Click="FileButton_Click"
+                        IsEnabled="False" ToolTip="Send file" Background="#42B72A" Foreground="White" FontSize="16" BorderThickness="0"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
